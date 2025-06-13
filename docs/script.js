@@ -1081,7 +1081,7 @@ const displayArea = document.getElementById('displayArea');
 function updateDisplay() {
     const filter = inputBox.value.toUpperCase();
     const lines = DATA.trim().split('\n');
-    const filtered = lines.filter(line => line.toLowerCase().includes(filter));
+    const filtered = lines.filter(line => line.includes(filter));
     displayArea.textContent = filtered.join('\n');
 }
 
