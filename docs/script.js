@@ -12,7 +12,7 @@ async function getCfg() {
 function updateDisplay() {
     const query = document.getElementById('query');
     const display = document.getElementById('display');
-    const filter = query.value.toUpperCase();
+    const filter = query.value.toUpperCase().trim();
     const filtered = cfg.lines.filter(line => line.includes(filter));
     display.textContent = filtered.join('\n');
 }
