@@ -1,4 +1,4 @@
-import { DATA } from './config.js';
+import { DATA } from 'config.js';
 
 const inputBox = document.getElementById('inputBox');
 const displayArea = document.getElementById('displayArea');
