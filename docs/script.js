@@ -1,3 +1,5 @@
+let data = ""; // Global variable to store joined lines
+
 async function getJoinedLines() {
     const response = await fetch('cfg.json');
     if (!response.ok) {
@@ -7,8 +9,7 @@ async function getJoinedLines() {
     return config.lines.join('\n');
 }
 
-async function updateDisplay() {
-    const data = await getJoinedLines(); // <-- await here
+function updateDisplay() {
     const query = document.getElementById('query');
     const display = document.getElementById('display');
     const filter = query.value.toUpperCase();
@@ -17,7 +18,8 @@ async function updateDisplay() {
     display.textContent = filtered.join('\n');
 }
 
-function main() {
+async function main() {
+    data = await getJoinedLines(); // Load data once
     const query = document.getElementById('query');
     query.addEventListener('input', updateDisplay);
     // Initial display
