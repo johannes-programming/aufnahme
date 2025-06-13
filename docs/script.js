@@ -1,4 +1,4 @@
-import { DATA } from 'config.js';
+const DATA = require("fs").readFileSync("data.txt", 'utf8')
 
 const inputBox = document.getElementById('inputBox');
 const displayArea = document.getElementById('displayArea');
