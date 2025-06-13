@@ -1,5 +1,6 @@
 // Constant DATA (multi-line string)
-const DATA = `
+function getdata() {
+    return `
 3270:AARBERG:PZM
 4912:AARWANGEN:PZM
 1657:ABLÄNDSCHEN:PZM
@@ -1074,18 +1075,20 @@ const DATA = `
 3770:ZWEISIMMEN:PZM
 3645:ZWIESELBERG:PZM
 3756:ZWISCHENFLÜH:PZM`;
-
-const inputBox = document.getElementById('inputBox');
-const displayArea = document.getElementById('displayArea');
+}
 
 function updateDisplay() {
+    const data = getdata();
+    const inputBox = document.getElementById('inputBox');
+    const displayArea = document.getElementById('displayArea');
     const filter = inputBox.value.toUpperCase();
-    const lines = DATA.trim().split('\n');
+    const lines = data.trim().split('\n');
     const filtered = lines.filter(line => line.includes(filter));
     displayArea.textContent = filtered.join('\n');
 }
 
 function main(){
+    const inputBox = document.getElementById('inputBox');
     inputBox.addEventListener('input', updateDisplay);
     // Initial display
     updateDisplay();
