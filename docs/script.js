@@ -1079,17 +1079,17 @@ function getdata() {
 
 function updateDisplay() {
     const data = getdata();
-    const inputBox = document.getElementById('inputBox');
-    const displayArea = document.getElementById('displayArea');
-    const filter = inputBox.value.toUpperCase();
+    const query = document.getElementById('query');
+    const display = document.getElementById('display');
+    const filter = query.value.toUpperCase();
     const lines = data.trim().split('\n');
     const filtered = lines.filter(line => line.includes(filter));
-    displayArea.textContent = filtered.join('\n');
+    display.textContent = filtered.join('\n');
 }
 
 function main(){
-    const inputBox = document.getElementById('inputBox');
-    inputBox.addEventListener('input', updateDisplay);
+    const query = document.getElementById('query');
+    query.addEventListener('input', updateDisplay);
     // Initial display
     updateDisplay();
 }
